@@ -25,12 +25,15 @@
 #include "toggle_widgets_dialog.h"
 #include "status.h"
 
+#include "generate.h"
+
 #include <QMenu>
 #include <QLocale>
 #include <QMessageBox>
 #include <QActionGroup>
 #include <QApplication>
 #include <QDebug>
+#include <QTimer>
 
 MenuBar::MenuBar()
 : QMenuBar() {
@@ -41,6 +44,11 @@ MenuBar::MenuBar()
             STATUS()->start_error_log();
             AD()->connect();
             STATUS()->end_error_log(this);
+        });
+
+    action_menu->addAction(tr("Generate objects"),
+        []() {
+            generate();
         });
 
     action_menu->addAction(tr("Find"),
