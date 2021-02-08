@@ -4,9 +4,10 @@
 set -euxo pipefail
 
 # setup xvfb
-Xvfb :1 -screen 0 1920×1080x16 &> xvfb.log  &
+Xvfb :1 -screen 0 1920×1080x16 &> xvfb.log &
 
 export DISPLAY=:1.0
+export  QT_QPA_PLATFORM=offscreen
 
 # build tests
 cp -r /app $HOME/app
