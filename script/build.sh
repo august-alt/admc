@@ -9,7 +9,9 @@ Xvfb :1 -screen 0 1920×1080x16 &> xvfb.log  &
 export DISPLAY=:1.0
 
 # build tests
-cd /app
+cp -r /app $HOME/app
+
+cd $HOME/app
 
 cmake -B $HOME/build -DFIND_MODULES=ON
 
