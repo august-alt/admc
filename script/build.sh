@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# -e exits on error, -u errors on undefined variables, and -o (for option) pipefail exits on command pipe failures.
+set -euxo pipefail
+
 # setup xvfb
 Xvfb :1 -screen 0 1920×1080x16 &> xvfb.log  &
 
