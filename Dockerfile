@@ -4,7 +4,7 @@ FROM alt:p9
 RUN apt-get update \
 && apt-get install -y qt5-base-devel cmake qt5-tools-devel qt5-tools libuuid-devel libsmbclient-devel libsasl2-devel \
 catch2-devel doxygen glib2-devel libpcre-devel rpm-build gear libldap-devel libcmocka-devel libkrb5-devel xorg-xvfb\
-&& useradd -ms /bin/bash -u 1024 builder && mkdir /app && chown -R builder:builder /app && chmod g+s /app && chmod -R 777 /app
+&& useradd -ms /bin/bash -u 1024 builder && mkdir /app && chown -R builder:builder /app
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY script/build.sh /build.sh
